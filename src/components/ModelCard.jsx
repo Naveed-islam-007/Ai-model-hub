@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 
-const ModelCard = ({model}) => {
+const ModelCard = ({model, carts, setCarts}) => {
      const [isSubscribed,setisSubscribed]=useState(false);
 
      const handleSubscripion=()=>{
         setisSubscribed(true);
+        const isFound = carts.find((item) => item.id === model.id);
+
+    if (isFound) {
+    
+      return;
+    }
+
+    setCarts([...carts, model]);
+      
        
      }
     return (

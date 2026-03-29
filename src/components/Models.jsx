@@ -1,7 +1,10 @@
 import React, { use} from 'react';
 import ModelCard from './ModelCard';
+import card from 'daisyui/components/card';
 
-const Models = ({ModelPromise}) => {
+const Models = ({ModelPromise, carts, setCarts }) => {
+
+
    const models=use(ModelPromise)
  
 
@@ -16,7 +19,7 @@ const Models = ({ModelPromise}) => {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 container mx-auto'>
            {
             models.map(model=> 
-              <ModelCard key={model.id} model={model}></ModelCard>
+              <ModelCard key={model.id} model={model} carts={carts} setCarts={setCarts}></ModelCard>
             )
            }
           </div>

@@ -17,6 +17,7 @@ function App() {
   const ModelPromise=getModels();
 
   const [activeTab,setaciveTab]=useState('All')
+    const [carts, setCarts] = useState([])  
 
 
   return (
@@ -33,9 +34,9 @@ function App() {
 
     {
       activeTab==='All'?<Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
-      <Models ModelPromise={ModelPromise}></Models>
+      <Models ModelPromise={ModelPromise} carts={carts} setCarts={setCarts}></Models>
     </Suspense>:
-    <Cart  ></Cart>
+    <Cart  carts={carts} setCarts={setCarts}></Cart>
 
     }
 
